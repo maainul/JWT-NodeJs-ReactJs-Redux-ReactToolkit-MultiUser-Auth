@@ -42,7 +42,22 @@ function App() {
       <BrowserRouter>
         <Routes>
           {/* public Routes */}
-          <Route path="/login" element={<Login />} />
+          <Route
+            path="/login"
+            element={
+              <MainLayout>
+                <Login />
+              </MainLayout>
+            }
+          />
+          <Route
+            path="/"
+            element={
+              <MainLayout>
+                <Blogs />
+              </MainLayout>
+            }
+          />
           <Route
             path="/blog/list"
             element={
@@ -51,16 +66,12 @@ function App() {
               </MainLayout>
             }
           />
-
-          {/* Protected Routes */}
           <Route
             path="/register"
             element={
-              <ProtectedRoute>
-                <MainLayout>
-                  <Registration />
-                </MainLayout>
-              </ProtectedRoute>
+              <MainLayout>
+                <Registration />
+              </MainLayout>
             }
           />
 
